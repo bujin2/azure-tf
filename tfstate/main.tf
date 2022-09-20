@@ -4,7 +4,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "tfstate" {
   name     = "${var.service}-tfstate-RG"
-  location = local.location
+  location = var.location
 }
 
 resource "azurerm_storage_account" "tfstate" {
