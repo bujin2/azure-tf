@@ -16,10 +16,10 @@ resource "azurerm_storage_account" "tfstate" {
  # allow_blob_public_access = true
 
   tags = {
-    environment = var.environment
-    managedby  = "terraform"
-    service = var.service
-    company = var.company
+    managedby = "terraform"
+    service   = var.service
+    company   = var.company
+    location  = var.location
 }
 }
 resource "azurerm_storage_container" "tfstate" {
