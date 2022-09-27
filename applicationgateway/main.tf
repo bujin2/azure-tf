@@ -58,5 +58,6 @@ resource "azurerm_application_gateway" "agw" {
     http_listener_name         = "${var.agw_name}-httplstn"
     backend_address_pool_name  = "${var.agw_name}-beap"
     backend_http_settings_name = "${var.agw_name}-be-htst"
+    priority                   = var.request_routing_rule_priority
   }
 }
