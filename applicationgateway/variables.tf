@@ -51,7 +51,7 @@ variable "agw_sku_tier" {
 variable "agw_sku_capacity" {
   description = ""
   type        = string
-  default     = "autoscale_configuration"
+  default     = "2"
 }
 
 variable "agw_subnet_name" {
