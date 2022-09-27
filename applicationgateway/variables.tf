@@ -38,7 +38,7 @@ variable "pip_sku" {
 variable "agw_sku_name" {
   description = ""
   type        = string
-  default     = "agwskuname"
+  default     = "WAF_v2"
 }
 
 
