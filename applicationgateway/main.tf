@@ -1,25 +1,25 @@
 resource "azurerm_public_ip" "agw" {
-  name                = var.agwpip
+  name                = var.agw_pip
   resource_group_name = var.resource_group_name
   location            = var.location
-  allocation_method   = "Static"
-  sku                 = "Standard"
+  allocation_method   = var.allocation_method
+  sku                 = var.pip_sku
 }
 
 
 resource "azurerm_application_gateway" "agw" {
-  name                = var.agwname
+  name                = var.agw_name
   resource_group_name = var.resource_group_name
   location            = var.location
   sku {
-    name     = "Standard_Small"
-    tier     = "WAF_v2"
-    capacity = 2
+    name     = var.agw_sku_name
+    tier     = var.agw_sku_tier
+    capacity = var.agw_sku_capacity
   }
 
   gateway_ip_configuration {
     name      = "${var.agwname}-agw"
-    subnet_id = var.appgwsubnet.id
+    subnet_id = var.agw_subnet_id
   }
 
 #   frontend_port {
