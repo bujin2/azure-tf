@@ -66,3 +66,15 @@ variable "request_routing_rule_priority" {
   default     = "1"
 }
 
+variable "min_capacity" {
+  description = ""
+  type        = string
+  default     = "1"
+}
+
+variable "max_capacity" {
+  description = ""
+  type        = string
+  default     = "5"
+}
+
