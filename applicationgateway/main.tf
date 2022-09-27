@@ -14,7 +14,7 @@ resource "azurerm_application_gateway" "agw" {
   sku {
     name     = var.agw_sku_name
     tier     = var.agw_sku_tier
-    capacity = var.agw_sku_capacity
+#     capacity = var.agw_sku_capacity
   }
   autoscale_configuration {
     min_capacity  = var.min_capacity
