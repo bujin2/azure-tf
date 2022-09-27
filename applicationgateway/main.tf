@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "agw" {
-  name                = var.agw_pip
+  name                = var.agw_pip_name
   resource_group_name = var.resource_group_name
   location            = var.location
   allocation_method   = var.allocation_method
