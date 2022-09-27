@@ -59,3 +59,4 @@ variable "agw_subnet_name" {
   type        = string
   default     = "agwsubnetname"
 }
+
