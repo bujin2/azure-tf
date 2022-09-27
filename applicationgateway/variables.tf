@@ -10,6 +10,12 @@ variable "resource_group_name" {
   default     = "resource_group_name"
 }
 
+variable "allocation_method" {
+  description = ""
+  type        = string
+  default     = "Static"
+}
+
 
 variable "location" {
   description = ""
