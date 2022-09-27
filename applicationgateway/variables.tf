@@ -60,3 +60,9 @@ variable "agw_subnet_name" {
   default     = "agwsubnetname"
 }
 
+variable "request_routing_rule_priority" {
+  description = ""
+  type        = string
+  default     = "1"
+}
+
