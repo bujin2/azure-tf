@@ -18,7 +18,7 @@ resource "azurerm_application_gateway" "agw" {
   }
 
   gateway_ip_configuration {
-    name      = "${var.agwname}-agw"
+    name      = "${var.agw_name}-agw"
     subnet_id = var.agw_subnet_name
   }
 
@@ -28,7 +28,7 @@ resource "azurerm_application_gateway" "agw" {
 #   }
 
   frontend_ip_configuration {
-    name                 = "${var.agwname}-pip"
+    name                 = "${var.agw_name}-pip"
     public_ip_address_id = azurerm_public_ip.agw.id
   }
 
