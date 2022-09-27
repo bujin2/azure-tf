@@ -4,6 +4,7 @@ resource "azurerm_public_ip" "agw" {
   location            = var.location
   allocation_method   = var.allocation_method
   sku                 = var.pip_sku
+  tags                = var.tags
 }
 
 
@@ -11,6 +12,7 @@ resource "azurerm_application_gateway" "agw" {
   name                = var.agw_name
   resource_group_name = var.resource_group_name
   location            = var.location
+  tags                = var.tags
   sku {
     name     = var.agw_sku_name
     tier     = var.agw_sku_tier
