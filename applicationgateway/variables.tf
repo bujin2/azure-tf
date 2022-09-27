@@ -45,13 +45,13 @@ variable "agw_sku_name" {
 variable "agw_sku_tier" {
   description = ""
   type        = string
-  default     = "Standard"
+  default     = "WAF_v2"
 }
 
 variable "agw_sku_capacity" {
   description = ""
   type        = string
-  default     = "2"
+  default     = "autoscale_configuration"
 }
 
 variable "agw_subnet_name" {
