@@ -1,4 +1,20 @@
 
+variable "vnet_resource_group_name" {
+  type = string
+  default = "sql"
+}
+
+
+variable "vnet_name" {
+  type = string
+  default = "sql"
+}
+
+
+variable "route_table_name" {
+  type = string
+  default = "sql"
+}
 
 variable "sql_managed_instance_name" {
   type = string
