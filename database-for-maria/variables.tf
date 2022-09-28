@@ -1,26 +1,9 @@
-variable "subnet_name" {
-  description = ""
-  type        = string
-  default     = "name"
-}
-
 variable "resource_group_name" {
   description = ""
   type        = string
   default     = "name"
 }
 
-variable "virtual_network_name" {
-  description = ""
-  type        = string
-  default     = "name"
-}
-
-variable "address_prefixes" {
-  description = ""
-  type        = list(string)
-  default     = []
-}
 
 variable "mariadb_name" {
   description = ""
@@ -31,7 +14,7 @@ variable "mariadb_name" {
 variable "location" {
   description = ""
   type        = string
-  default     = "koreacentral"
+  default     = "eastus"
 }
 
 variable "admin_user" {
@@ -61,7 +44,7 @@ variable "storage_mb" {
 variable "maria_version" {
   description = ""
   type        = string
-  default     = "10.2"
+  default     = "10.3"
 }
 
 variable "auto_grow_enabled" {
@@ -85,7 +68,7 @@ variable "geo_redundant_backup_enabled" {
 variable "public_network_access_enabled" {
   description = ""
   type        = string
-  default     = "false"
+  default     = "true"
 }
 
 variable "ssl_enforcement_enabled" {
