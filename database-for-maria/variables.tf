@@ -18,8 +18,8 @@ variable "virtual_network_name" {
 
 variable "address_prefixes" {
   description = ""
-  type        = string
-  default     = "name"
+  type        = list(string)
+  default     = []
 }
 
 variable "mariadb_name" {
