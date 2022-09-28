@@ -22,8 +22,8 @@ resource "azurerm_subnet_network_security_group_association" "sql_managed" {
 
 resource "azurerm_route_table" "example" {
   name                          = var.route_table_name
-  location                      = azurerm_resource_group.sql_managed.location
-  resource_group_name           = azurerm_resource_group.sql_managed.name
+  location                      = var.location
+  resource_group_name           = var.vnet_resource_group_name
   disable_bgp_route_propagation = var.disable_bgp_route_propagation
   depends_on = [
     azurerm_subnet.sql_managed,
