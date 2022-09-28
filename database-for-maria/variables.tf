@@ -58,7 +58,7 @@ variable "storage_mb" {
   default     = "51200"
 }
 
-variable "version" {
+variable "maria_version" {
   description = ""
   type        = string
   default     = "10.2"
