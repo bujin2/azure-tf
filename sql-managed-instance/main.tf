@@ -1,3 +1,9 @@
+# resource "azurerm_network_security_group" "example" {
+#   name                = "mi-security-group"
+#   location            = azurerm_resource_group.example.location
+#   resource_group_name = azurerm_resource_group.example.name
+# }
+
 resource "azurerm_subnet" "sql_managed" {
   name                 = var.sql_managed_instance_name
   resource_group_name  = var.vnet_resource_group_name
@@ -15,10 +21,10 @@ resource "azurerm_subnet" "sql_managed" {
 }
 
 
-resource "azurerm_subnet_network_security_group_association" "sql_managed" {
-  subnet_id                 = azurerm_subnet.sql_managed.id
-  network_security_group_id = azurerm_network_security_group.sql_managed.id
-}
+# resource "azurerm_subnet_network_security_group_association" "sql_managed" {
+#   subnet_id                 = azurerm_subnet.sql_managed.id
+#   network_security_group_id = azurerm_network_security_group.sql_managed.id
+# }
 
 resource "azurerm_route_table" "example" {
   name                          = var.route_table_name
@@ -30,10 +36,10 @@ resource "azurerm_route_table" "example" {
   ]
 }
 
-resource "azurerm_subnet_route_table_association" "sql_managed" {
-  subnet_id      = azurerm_subnet.sql_managed.id
-  route_table_id = azurerm_route_table.sql_managed.id
-}
+# resource "azurerm_subnet_route_table_association" "sql_managed" {
+#   subnet_id      = azurerm_subnet.sql_managed.id
+#   route_table_id = azurerm_route_table.sql_managed.id
+# }
 
 resource "azurerm_mssql_managed_instance" "sql_managed" {
   name                = var.sql_managed_instance_name
@@ -49,8 +55,8 @@ resource "azurerm_mssql_managed_instance" "sql_managed" {
   administrator_login          = var.admin_user
   administrator_login_password = var.admin_password
 
-  depends_on = [
-    azurerm_subnet_network_security_group_association.sql_managed,
-    azurerm_subnet_route_table_association.sql_managed,
-  ]
+#   depends_on = [
+#     azurerm_subnet_network_security_group_association.sql_managed,
+#     azurerm_subnet_route_table_association.sql_managed,
+#   ]
 }
