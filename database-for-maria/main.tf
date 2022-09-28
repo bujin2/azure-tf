@@ -15,4 +15,5 @@ resource "azurerm_mariadb_server" "mariadb" {
   geo_redundant_backup_enabled  = var.geo_redundant_backup_enabled
   public_network_access_enabled = var.public_network_access_enabled
   ssl_enforcement_enabled       = var.ssl_enforcement_enabled
+  tags                          = var.tags
 }
