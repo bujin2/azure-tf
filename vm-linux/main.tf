@@ -38,7 +38,6 @@ resource "azurerm_virtual_machine" "vm-linux" {
 #   }
 
   storage_image_reference {
-    id        = var.vm_os_id
     publisher = var.vm_os_publisher
     offer     = var.vm_os_offer
     sku       = var.vm_os_sku
