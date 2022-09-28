@@ -1,7 +1,7 @@
 resource "azurerm_subnet" "sql_managed" {
   name                 = var.sql_managed_instance_name
-  resource_group_name  = azurerm_resource_group.sql_managed.name
-  virtual_network_name = azurerm_virtual_network.sql_managed.name
+  resource_group_name  = var.vnet_resource_group_name
+  virtual_network_name = var.vnet_name
   address_prefixes     = var.address_prefixes
 
   delegation {
@@ -21,7 +21,7 @@ resource "azurerm_subnet_network_security_group_association" "sql_managed" {
 }
 
 resource "azurerm_route_table" "example" {
-  name                          = "routetable-mi"
+  name                          = var.route_table_name
   location                      = azurerm_resource_group.sql_managed.location
   resource_group_name           = azurerm_resource_group.sql_managed.name
   disable_bgp_route_propagation = var.disable_bgp_route_propagation
@@ -36,7 +36,7 @@ resource "azurerm_subnet_route_table_association" "sql_managed" {
 }
 
 resource "azurerm_mssql_managed_instance" "sql_managed" {
-  name                = "managedsqlinstance"
+  name                = var.sql_managed_instance_name
   resource_group_name = var.resource_group_name
   location            = var.location
 
