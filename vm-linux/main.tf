@@ -101,7 +101,7 @@ resource "azurerm_virtual_machine" "vm-linux" {
 #       }
 #     }
 
-  }
+#   }
 
 #   dynamic "os_profile_secrets" {
 #     for_each = var.os_profile_secrets
