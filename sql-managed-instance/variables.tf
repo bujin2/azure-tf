@@ -5,9 +5,11 @@ variable "sql_managed_instance_name" {
   default = "sql"
 }
 
+
 variable "address_prefixes" {
-  type = string
-  default = ""
+  description = "The address prefix to use for the subnet."
+  type        = list(string)
+  default     = ["10.0.1.0/24"]
 }
 
 variable "disable_bgp_route_propagation" {
