@@ -12,7 +12,7 @@ resource "random_id" "vm-sa" {
 
 
 resource "azurerm_virtual_machine" "vm-linux" {
-  count                            = ! contains(tolist([var.vm_os_simple, var.vm_os_offer]), "WindowsServer") && ! var.is_windows_image ? var.nb_instances : 0
+  count                            = var.nb_instances
   name                             = "${var.vm_hostname}${count.index + 1}"
   resource_group_name              = data.azurerm_resource_group.vm.name
   location                         = coalesce(var.location, data.azurerm_resource_group.vm.location)
