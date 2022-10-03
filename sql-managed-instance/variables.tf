@@ -1,3 +1,12 @@
+variable "tags" {
+  description = "The tags to associate with your network and subnets."
+  type        = map(string)
+
+  default = {
+    environment = "dev"
+  }
+}
+
 
 variable "vnet_resource_group_name" {
   type = string
