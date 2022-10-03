@@ -2,6 +2,7 @@ resource "azurerm_network_security_group" "sql_managed" {
   name                = "${var.sql_managed_instance_name}-nsg"
   location            = var.location
   resource_group_name = var.vnet_resource_group_name
+  tags                = var.tags
 }
 
 resource "azurerm_subnet" "sql_managed" {
@@ -30,6 +31,7 @@ resource "azurerm_route_table" "sql_managed" {
   name                          = var.route_table_name
   location                      = var.location
   resource_group_name           = var.vnet_resource_group_name
+  tags                          = var.tags
   disable_bgp_route_propagation = var.disable_bgp_route_propagation
   depends_on = [
     azurerm_subnet.sql_managed,
@@ -45,7 +47,7 @@ resource "azurerm_mssql_managed_instance" "sql_managed" {
   name                = var.sql_managed_instance_name
   resource_group_name = var.resource_group_name
   location            = var.location
-
+  tags                = var.tags
   license_type       = var.license_type
   sku_name           = var.sku_name
   storage_size_in_gb = var.storage_size_in_gb
