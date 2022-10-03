@@ -5,7 +5,7 @@ resource "azurerm_network_security_group" "sql_managed" {
 }
 
 resource "azurerm_subnet" "sql_managed" {
-  name                 = var.sql_managed_instance_name
+  name                 = "${var.sql_managed_instance_name}_SUB"
   resource_group_name  = var.vnet_resource_group_name
   virtual_network_name = var.vnet_name
   address_prefixes     = var.address_prefixes
