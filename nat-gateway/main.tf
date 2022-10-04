@@ -1,4 +1,4 @@
-resource "azurerm_public_ip" "natgw" {
+resource "azurerm_public_ip" "ngw" {
   name                = "${var.natgw_name}-pip"
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -6,14 +6,14 @@ resource "azurerm_public_ip" "natgw" {
   sku                 = var.natpip_sku
 }
 
-resource "azurerm_nat_gateway" "natgw" {
+resource "azurerm_nat_gateway" "ngw" {
   name                = var.natgw_name
   location            = var.location
   resource_group_name = var.resource_group_name
   sku_name            = var.natgw_sku
 }
 
-resource "azurerm_nat_gateway_public_ip_association" "natgw" {
-  nat_gateway_id       = azurerm_nat_gateway.natgw.id
-  public_ip_address_id = azurerm_public_ip.natgw.id
+resource "azurerm_nat_gateway_public_ip_association" "ngw" {
+  nat_gateway_id       = azurerm_nat_gateway.ngw.id
+  public_ip_address_id = azurerm_public_ip.ngw.id
 }
