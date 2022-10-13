@@ -139,7 +139,7 @@ variable "tags" {
 variable "allocation_method" {
   description = "Defines how an IP address is assigned. Options are Static or Dynamic."
   type        = string
-  default     = "Dynamic"
+  default     = "Static"
 }
 
 variable "public_ip_sku" {
