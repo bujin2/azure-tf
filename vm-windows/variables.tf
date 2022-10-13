@@ -145,7 +145,7 @@ variable "allocation_method" {
 variable "public_ip_sku" {
   description = "Defines the SKU of the Public IP. Accepted values are Basic and Standard. Defaults to Basic."
   type        = string
-  default     = "Basic"
+  default     = "Standard"
 }
 
 variable "nb_public_ip" {
