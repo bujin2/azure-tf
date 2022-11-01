@@ -85,3 +85,16 @@ variable "tags" {
     environment = "dev"
   }
 }
+
+
+variable "vnet_name" {
+  description = ""
+  type        = string
+  default     = "name"
+}
+
+variable "db_address_prefixes" {
+  description = ""
+  type        = string
+  default     = "name"
+}
