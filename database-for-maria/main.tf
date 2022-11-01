@@ -19,26 +19,26 @@ resource "azurerm_mariadb_server" "mariadb" {
 }
 
 
-# resource "azurerm_subnet" "mariadb" {
-#   name                 = "${azurerm_mariadb_server.mariadb.name}-sub"
-#   resource_group_name  = var.resource_group_name
-#   virtual_network_name = var.vnet_name
-#   address_prefixes     = var.db_address_prefixes
-#   service_endpoints    = ["Microsoft.Sql"]
-# }
+resource "azurerm_subnet" "mariadb" {
+  name                 = "${azurerm_mariadb_server.mariadb.name}-sub"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = var.vnet_name
+  address_prefixes     = var.db_address_prefixes
+  service_endpoints    = ["Microsoft.Sql"]
+}
 
 
-# resource "azurerm_mariadb_virtual_network_rule" "mariadb" {
-#   name                = "${azurerm_mariadb_server.mariadb.name}-vnetrule"
-#   resource_group_name = var.resource_group_name
-#   server_name         = azurerm_mariadb_server.mariadb.name
-#   subnet_id           = azurerm_subnet.mariadb.id
-# }
+resource "azurerm_mariadb_virtual_network_rule" "mariadb" {
+  name                = "${azurerm_mariadb_server.mariadb.name}-vnetrule"
+  resource_group_name = var.resource_group_name
+  server_name         = azurerm_mariadb_server.mariadb.name
+  subnet_id           = azurerm_subnet.mariadb.id
+}
 
-# resource "azurerm_mariadb_firewall_rule" "mariadb" {
-#   name                = "${azurerm_mariadb_server.mariadb.name}-fwrule"
-#   resource_group_name = var.resource_group_name
-#   server_name         = azurerm_mariadb_server.mariadb.name
-#   start_ip_address    = var.start_ip_address
-#   end_ip_address      = var.end_ip_address
-# }
+resource "azurerm_mariadb_firewall_rule" "mariadb" {
+  name                = "${azurerm_mariadb_server.mariadb.name}-fwrule"
+  resource_group_name = var.resource_group_name
+  server_name         = azurerm_mariadb_server.mariadb.name
+  start_ip_address    = var.start_ip_address
+  end_ip_address      = var.end_ip_address
+}
