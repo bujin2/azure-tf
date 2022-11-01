@@ -95,6 +95,6 @@ variable "vnet_name" {
 
 variable "db_address_prefixes" {
   description = ""
-  type        = string
-  default     = "name"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
 }
