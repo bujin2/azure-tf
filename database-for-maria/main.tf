@@ -17,3 +17,20 @@ resource "azurerm_mariadb_server" "mariadb" {
   ssl_enforcement_enabled       = var.ssl_enforcement_enabled
   tags                          = var.tags
 }
+
+
+resource "azurerm_subnet" "mariadb" {
+  name                 = "${azurerm_mariadb_server.mariadb.name}-sub"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = var.vnet_name
+  address_prefixes     = var.db_address_prefixes
+  service_endpoints    = ["Microsoft.Sql"]
+}
+
+
+resource "azurerm_mariadb_virtual_network_rule" "mariadb" {
+  name                = "${azurerm_mariadb_server.mariadb.name}-rule"
+  resource_group_name = var.resource_group_name
+  server_name         = azurerm_mariadb_server.mariadb.name
+  subnet_id           = azurerm_subnet.mariadb.id
+}
