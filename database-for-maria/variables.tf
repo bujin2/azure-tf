@@ -98,3 +98,16 @@ variable "db_address_prefixes" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
+
+variable "start_ip_address" {
+  description = ""
+  type        = string
+  default     = "1.1.1.1"
+}
+
+variable "end_ip_address" {
+  description = ""
+  type        = string
+  default     = "1.1.1.2"
+}
+
